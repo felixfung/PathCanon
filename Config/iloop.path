@@ -1,0 +1,9 @@
+| inactivating loop pathway, compared with simple pathway |
+
+DELTAT: .1; DURATION: 3; ALPHA: 0.35;
+
+input: 1*Rect(.1|width|,2|period|,.1|onset|,1|pulses|);
+path:  1*input(2);
+loop:  1*input(2) -1*loop(2);
+
+PRINT: path, loop;

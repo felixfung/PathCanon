@@ -1,0 +1,11 @@
+| kinase and phosphatase junction, compared to simple kinase pathway |
+
+DELTAT: .1; DURATION: 5; ALPHA: 0.35;
+
+input1: 1*Rect(.1|width|,2|period|,.1|onset|,1|pulses|);
+input2: 1*Rect(.1|width|,2|period|,2|onset|,1|pulses|);
+
+v-junction: 1*input1(5) -0.01*input2(0.5);
+simple:     1*input1(5);
+
+PRINT: simple, v-junction;
