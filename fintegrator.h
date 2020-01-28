@@ -24,7 +24,7 @@ class fIntegrator
 
   double alpha;            // fractional derivative order
   double deltat;           // integration time step
-  double val;              // read only integral value
+  long double val;              // read only integral value
   vector<double> history;  // fractional dervative is history dependent
 public:
   // provide phi in eqn, x = (d^a/dt) phi

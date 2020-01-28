@@ -29,10 +29,10 @@ void Mpi::bcast( string& data )
   data = buffer;
 }
 
-void Mpi::aggSum( double* sum )
+void Mpi::aggSum( long double* sum )
 {
-  double agg;
-  MPI_Allreduce( sum, &agg, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
+  long double agg;
+  MPI_Allreduce( sum, &agg, 1, MPI_LONG_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
   *sum = agg;
 }
 
@@ -62,7 +62,7 @@ Mpi::~Mpi(void)
 #else
 
 string Mpi::bcast( char* data, int length ) { return ""; }
-void Mpi::aggSum( double* localsum, double* sum ) {}
+void Mpi::aggSum( long double* localsum, long double* sum ) {}
 
 Mpi::Mpi(void) {}
 Mpi::~Mpi(void) {}

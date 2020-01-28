@@ -32,7 +32,7 @@ public:
   static char processor_name[MPI_MAX_PROCESSOR_NAME];
 
   static void bcast( string& data );
-  static void aggSum( double* localsum );
+  static void aggSum( long double* localsum );
 
   Mpi(void);
   ~Mpi(void);

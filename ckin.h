@@ -28,7 +28,7 @@ protected:
   vector<fIntegrator*> fd, fd2, fd3;  // array of fractional derivatives,
                             // each element corresponding to one term
                             // in exponential series
-  double expo_sum;          // read only value of the final pathway value
+  long double expo_sum;          // read only value of the final pathway value
   double length;            // pathway length
 
 public:
