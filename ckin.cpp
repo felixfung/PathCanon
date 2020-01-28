@@ -56,7 +56,7 @@ CKin::CKin( double alpha, double deltat, double length )
   // empirically found that this linear relation holds
   // up to around length/deltat <= 50
   int expo_terms = 1.5* length /deltat;
-  //if( expo_terms < 10 )
+  if( expo_terms < 10 )
     expo_terms = 10;
   for( int k=1; k<expo_terms; k++ )
     fd.push_back( new fIntegrator(-alpha,deltat) );
