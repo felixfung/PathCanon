@@ -25,7 +25,7 @@ protected:
   double alpha;             // fractional derivative order
   double deltat;            // integration time step
 
-  vector<fIntegrator*> fd, fd2, fd3;  // array of fractional derivatives,
+  vector<fIntegrator*> fd;  // array of fractional derivatives,
                             // each element corresponding to one term
                             // in exponential series
   long double expo_sum;          // read only value of the final pathway value
