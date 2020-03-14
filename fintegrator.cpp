@@ -3,7 +3,7 @@
 
 #include <cmath>
 
-void fIntegrator::input( double newest_history )
+void fIntegrator::input( long double newest_history )
 {
   history.push_back( newest_history );
 }

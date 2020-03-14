@@ -28,7 +28,7 @@ class fIntegrator
   vector<double> history;  // fractional dervative is history dependent
 public:
   // provide phi in eqn, x = (d^a/dt) phi
-  void input( double newest_history );
+  void input( long double newest_history );
   // integrate input
   void fIntegrate(void);
 
