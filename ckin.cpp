@@ -19,12 +19,14 @@ void CKin::input( long double input )
   // the solution is to use the Lie semigroup property
   // to chain multiple CKin's together
   // at some maximal length for each CKin
-  long double expo_term = expo_sum = input;
-  for( unsigned int k=1; k<=fd.size(); k++ ) {
-    fd[k-1]->input( expo_term );
-    fd[k-1]->fIntegrate();
-    expo_term = fd[k-1]->fIntegral();
-    expo_sum += pow(-length,k) /tgamma(k+1) *expo_term *2;
+  expo_sum = input;
+  fd[0]->input( input );
+  fd[0]->fIntegrate();
+  expo_sum += pow(-length,1) /tgamma(2) *fd[0]->fIntegral();
+  for( unsigned int i=1; i<fd.size(); i++ ) {
+    fd[i]->input( fd[i-1]->fIntegral() );
+    fd[i]->fIntegrate();
+    expo_sum += pow(-length,i+1) /tgamma(i+2) *fd[i]->fIntegral();
   }
   if( expo_sum<0 ) expo_sum = 0;
 }
