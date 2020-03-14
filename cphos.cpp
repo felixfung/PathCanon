@@ -1,6 +1,6 @@
 #include "cphos.h"
 
-void CPhos::input( double input )
+void CPhos::input( long double input )
 {
   // phosphatase pathway is equal to kinase pathway
   // with a phosphatase operation at the end

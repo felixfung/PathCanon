@@ -33,7 +33,7 @@ protected:
 
 public:
   double kinetics(void) const { return expo_sum; }
-  void input( double input ); // takes a stimulus during one timestep
+  void input( long double input ); // takes a stimulus during one timestep
   CKin( double alpha, double deltat, double length );
   virtual ~CKin(void);
 };

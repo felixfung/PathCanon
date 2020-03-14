@@ -22,7 +22,7 @@ class CPhos : public CKin
   fIntegrator fi;
 public:
   double kinetics(void) const { return fi.fIntegral(); }
-  void input( double input );
+  void input( long double input );
   CPhos( double alpha, double deltat, double length )
       : CKin(alpha,deltat,length), fi(alpha,deltat) {}
   virtual ~CPhos(void) {}

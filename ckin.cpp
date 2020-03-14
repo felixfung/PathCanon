@@ -1,7 +1,7 @@
 #include "ckin.h"
 #include <cmath>
 
-void CKin::input( double input )
+void CKin::input( long double input )
 {
   // ensure non-negative input
   if( input<0 ) input = 0;
