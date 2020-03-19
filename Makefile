@@ -1,6 +1,6 @@
-HEADER = $(wildcard *.h)
-CPP = $(wildcard *.cpp)
-OBJ = $(CPP:.cpp=.o)
+HEADER = $(wildcard src/*.h)
+CPP = $(wildcard src/*.cpp)
+OBJ = $(CPP:src/%.cpp=bin/%.o)# $(patsubstr src/%.cpp,bin/%.o,$(CPP))
 
 COMP_PARAM = -fopenmp -g -lm -Wall
 G++ = g++ $(COMP_PARAM)
@@ -8,16 +8,19 @@ MPIC++ = mpic++ -D USING_MPI $(COMP_PARAM)
 COMP = $(MPIC++)
 LIBS = 
 
-.DEFAULT_GOAL: Release/PathCanon
+.DEFAULT_GOAL: bin/PathCanon
 
-Release/PathCanon: $(addprefix Release/,$(OBJ))
-	$(COMP) $(addprefix Release/,$(OBJ)) -o $@ $(LIBS)
+bin/PathCanon: $(OBJ)
+	@echo $(CPP)
+	@echo $(OBJ)
+	$(COMP) $(OBJ) -o $@ $(LIBS)
 
-$(addprefix Release/,$(OBJ)): Release/%.o: %.cpp %.h
-	@mkdir -p Release
+$(OBJ): bin/%.o: src/%.cpp src/%.h
+	@echo $(CPP)
+	@mkdir -p bin
 	$(COMP) -c $< -o $@
 
-.INTERMEDIATE: main.h
+.INTERMEDIATE: src/main.h
 
-main.h:
-	touch main.h
+src/main.h:
+	touch src/main.h
